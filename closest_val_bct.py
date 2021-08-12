@@ -7,7 +7,8 @@ def find_closest_value_in_bst_helper(tree, target, closest):
     # Write a base case
     if tree is None:
         return closest
-    # If the current node value is closer to target than current closet, set closest to node value
+    # If the current node value is closer to target than current closet,
+    # set closest to node value
     if abs(target-closest) > abs(target - tree.value):
         closest = tree.value
     # if target is less than node value, traverse down left
