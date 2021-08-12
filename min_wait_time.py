@@ -10,6 +10,4 @@ def minimumWaitingTime(queries):
     # first waiting time is 0
     # second waiting time is queries[0]
     # n waiting time is current wait time, plus queries[n-1]
-
-    # 1,2,2,3,6
-    # 0,1,3,5,8
+    # 1,2,2,3,6    # 0,1,3,5,8
