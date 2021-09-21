@@ -9,34 +9,63 @@ class BST:
         self.right = None
 
     def insert(self, value):
-        currentNode = self
         while True:
-            if value < currentNode.value:
-                if currentNode.left is None:
-                    currentNode.left = BST(value)
+            if value < self.value:
+                if self.left is None:
+                    self.left = BST(value)
                     break
                 else:
-                    currentNode = currentNode.left
+                    self = self.left
             else:
-                if currentNode.right is None:
-                    currentNode.right = BST(value)
+                if self.right is None:
+                    self.right = BST(value)
                     break
                 else:
-                    currentNode = currentNode.right
+                    self = self.right
         return self
 
     def contains(self, value):
-        currentNode = self
-        while currentNode is not None:
-            if value < currentNode.value:
-                currentNode = currentNode.left
-            elif value > currentNode.value:
-                currentNode = currentNode.right
+        while self is not None:
+            if value < self.value:
+                self = self.left
+            elif value > self.value:
+                self = self.right
             else:
                 return True
         return False
 
-    def remove(self, value):
-        # Write your code here.
-        # Do not edit the return statement of this method.
+    def remove(self, value, parent=None):
+        if value < self.value:
+            if self.left is not None:
+                self.left.remove(value, self)
+            elif value > self.value:
+                if self.right is not None:
+                    self.right.remove(value, self)
+            else:
+                if self.left is not None and self.right is not None:
+                    self.value = self.right.getMinValue()
+                    self.right.remove(self.value, self)
+                elif parent is None:
+                    if self.left is not None:
+                        self.value = self.left.value
+                        self.right = self.left.right
+                        self.left = self.left.left
+                    elif self.right is not None:
+                        self.value = self.right.value
+                        self.left = self.right.left
+                        self.right = self.right.right
+                    else:
+                        pass
+                elif parent.left == self:
+                    parent.left = (self.left if self.left
+                                   is not None else self.right)
+                elif parent.right == self:
+                    parent.right = (self.left if self.left
+                                    is not None else self.right)
         return self
+
+    def getMinValue(self):
+        if self.left is None:
+            return self.value
+        else:
+            return self.left.getMinValue()
