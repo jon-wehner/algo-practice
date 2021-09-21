@@ -42,7 +42,8 @@ class BST:
                 parentNode = currentNode
                 currentNode = currentNode.right
             else:
-                if currentNode.left is not None and currentNode.right is not None:
+                if (currentNode.left
+                        is not None and currentNode.right is not None):
                     currentNode.value = currentNode.right.getMinValue()
                     currentNode.right.remove(
                         currentNode.value, currentNode)
@@ -58,9 +59,11 @@ class BST:
                     else:
                         pass
                 elif parentNode.left == currentNode:
-                    parentNode.left = currentNode.left if currentNode.left is not None else currentNode.right
+                    parentNode.left = (currentNode.left if currentNode.left
+                                       is not None else currentNode.right)
                 elif parentNode.right == currentNode:
-                    parentNode.right = currentNode.left if currentNode.left is not None else currentNode.right
+                    parentNode.right = (currentNode.left if currentNode.left
+                                        is not None else currentNode.right)
                 break
         return self
 
