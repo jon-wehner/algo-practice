@@ -13,8 +13,8 @@ function twoNumberSumHash (array, targetSum) {
 
 function twoNumberSumPointers (array, targetSum) {
   array.sort();
-  const leftPointer = 0;
-  const rightPointer = array.length - 1;
+  let leftPointer = 0;
+  let rightPointer = array.length - 1;
   while (leftPointer < rightPointer) {
     const currentSum = array[leftPointer] + array[rightPointer];
     if (currentSum == targetSum) {
