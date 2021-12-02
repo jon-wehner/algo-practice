@@ -16,6 +16,7 @@ function tournamentWinner (competitions, results) {
     };
 
   };
+  return currentBestTeam; 
 };
 
 function updateScores(team, score, scores) {
