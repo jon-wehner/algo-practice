@@ -17,7 +17,7 @@
 #     else:
 #         return closest
 
-
+# same but o(1) space
 def find_closest_value_in_bst(tree, target):
     return find_closest_value_in_bst_helper(tree, target, float("inf"))
 
