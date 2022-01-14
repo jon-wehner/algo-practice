@@ -11,6 +11,9 @@ def removeDuplicatesFromLinkedList(linkedList):
     # as traversal continues, if value is found delete the node from the list
     # in order to do so: keep track of prevNode,
     # prevNode.next = currNode.next, set currNode.next to None
+    # nb 1/2022 this solution is valid for an unsorted linked list
+    # the problem had a sorted linked list, so the visited has added
+    # an uncessary space complexity. See JS solution for O(1) space.
     prevNode = None
     currNode = linkedList
     visited = dict()
