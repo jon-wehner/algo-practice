@@ -3,6 +3,7 @@
 // AAAA = 4A
 // max run is 9
 // lossless means we can get back to original input with output and vice versa
+// O(N) time O(N) space
 
 
 
