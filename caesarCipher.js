@@ -1,11 +1,12 @@
+// o n time o n space
 function caesarCipherEncryptor(string, key) {
   alphabet = 'abcdefghijklmnopqrstuvwxyz';
-  caesarString = '';
+  caesarLetters = [];
   for (let i = 0; i < string.length; i++) {
     const char = string[i];
     charIdx = alphabet.indexOf(char);
     caesarIdx = (charIdx + key) % 26;
-    caesarString += alphabet[caesarIdx];
+    caesarLetters.push(alphabet[caesarIdx]);
   }
-  return caesarString
+  return caesarLetters.join('');
 }
