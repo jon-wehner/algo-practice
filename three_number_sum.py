@@ -16,7 +16,7 @@ def threeNumberSum(array, targetSum):
                 right -= 1
     return triplets
 
-# Taking a non-empty array of DISTINCT integers and a target sum. 
+# Taking a non-empty array of DISTINCT integers and a target sum.
 # Return all triplets that add up to the sum
 # Sort the array in place
 # Iterate through the array
