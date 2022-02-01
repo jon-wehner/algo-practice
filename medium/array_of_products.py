@@ -32,7 +32,7 @@ def array_of_products(array):
         left_running_product *= array[i]
 
     right_running_product = 1
-    for i in range(len(array)):
+    for i in reversed(range(len(array))):
         right_products[i] = right_running_product
         right_running_product *= array[i]
 
@@ -53,7 +53,7 @@ def array_of_products(array):
         left_running_product *= array[i]
 
     right_running_product = 1
-    for i in range(len(array)):
+    for i in reversed(range(len(array))):
         products[i] *= right_running_product
         right_running_product *= array[i]
 
