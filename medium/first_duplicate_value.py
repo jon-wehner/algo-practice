@@ -42,6 +42,7 @@ def first_duplicate_value(array):
 # found values can be mapped to idx val - 1
 # val @ index can be set negative to indicate it was found
 # iterate until a negative number is found
+# only works if you can mutate array
 
 
 def first_duplicate_value(array):
