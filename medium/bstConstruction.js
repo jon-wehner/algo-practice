@@ -9,38 +9,38 @@
 // worst case can be O(N) if there is a one branch tree
 
 class BST {
-  constructor(value) {
-    this.value = value;
-    this.left = null;
-    this.right = null;
+  constructor (value) {
+    this.value = value
+    this.left = null
+    this.right = null
   }
 
-  insert(value) {
-    let currentNode = this;
+  insert (value) {
+    let currentNode = this
     while (true) {
       if (value < currentNode.value) {
         if (currentNode.left === null) {
-          currentNode.left = new BST(value);
-          break;
+          currentNode.left = new BST(value)
+          break
         } else {
-          currentNode = currentNode.left;
+          currentNode = currentNode.left
         }
       } else {
         if (currentNode.right === null) {
           currentNode.right = new BST(value)
-          break;
+          break
         } else {
-          currentNode = currentNode.right;
+          currentNode = currentNode.right
         }
       }
     }
-    return this;
+    return this
   }
 
-  contains(value) {
+  contains (value) {
     let currentNode = this
     while (currentNode !== null) {
-      if ( value < currentNode.value) {
+      if (value < currentNode.value) {
         currentNode = currentNode.left
       } else if (value > currentNode.value) {
         currentNode = currentNode.right
@@ -51,43 +51,44 @@ class BST {
     return false
   }
 
-  remove(value, parentNode = null) {
-    let currentNode = this;
+  remove (value, parentNode = null) {
+    let currentNode = this
     while (currentNode !== null) {
-      if ( value < currentNode.value) {
-        parentNode = currentNode;
-        currentNode = currentNode.left;
+      if (value < currentNode.value) {
+        parentNode = currentNode
+        currentNode = currentNode.left
       } else if (value > currentNode.value) {
-        parentNode = currentNode;
+        parentNode = currentNode
         currentNode = currentNode.right
       } else {
         if (currentNode.left !== null && currentNode.right !== null) {
-          currentNode.value = currentNode.right.getMinValue();
+          currentNode.value = currentNode.right.getMinValue()
           currentNode.right.remove(currentNode.value, currentNode)
         } else if (parentNode === null) {
-          if (currentNode.left !== null) {						
-            currentNode.value = currentNode.left.value;
-            currentNode.right = currentNode.left.right;
-            currentNode.left = currentNode.left.left;
+          if (currentNode.left !== null) {
+            currentNode.value = currentNode.left.value
+            currentNode.right = currentNode.left.right
+            currentNode.left = currentNode.left.left
           } else if (currentNode.right !== null) {
-            currentNode.value = currentNode.right.value;
-            currentNode.left = currentNode.right.left;
-            currentNode.right = currentNode.right.right;
+            currentNode.value = currentNode.right.value
+            currentNode.left = currentNode.right.left
+            currentNode.right = currentNode.right.right
           } else {
             // do nothing, single node tree
-          }          
+          }
         } else if (parentNode.left === currentNode) {
-           parentNode.left = currentNode.left !== null ? currentNode.left : currentNode.right;
+          parentNode.left = currentNode.left !== null ? currentNode.left : currentNode.right
         } else if (parentNode.right === currentNode) {
-        	 parentNode.right = currentNode.left !== null ? currentNode.left : currentNode.right;
-        }				
-        break;
+          parentNode.right = currentNode.left !== null ? currentNode.left : currentNode.right
+        }
+        break
       }
     }
-    return this;
+    return this
   }
-  getMinValue() {
-    let currentNode = this;
+
+  getMinValue () {
+    let currentNode = this
     while (currentNode.left !== null) {
       currentNode = currentNode.left
     }

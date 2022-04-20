@@ -26,7 +26,7 @@ class BST:
 
 # find the kth largest value in the bst
 # perform a reverse in order traversal until the kth node is found
-
+# o(h + k) time o(h) space
 class TreeInfo:
     def __init__(self, numberOfNodesVisited, latestVisitedNodeValue):
         self.numberOfNodesVisited = numberOfNodesVisited
@@ -45,6 +45,6 @@ def reverseInOrderTraverse(node, k, treeInfo):
 
     reverseInOrderTraverse(node.right, k, treeInfo)
     if treeInfo.numberOfNodesVisited < k:
-        treeInfo.numberOFNodesVisited += 1
+        treeInfo.numberOfNodesVisited += 1
         treeInfo.latestVisitedNodeValue = node.value
         reverseInOrderTraverse(node.left, k, treeInfo)
